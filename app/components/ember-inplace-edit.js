@@ -1,1 +1,1 @@
-export { default } from 'ember-inplace-edit/components/ember-inplace-edit';
+export { default } from '@dk03/ember-inplace-edit/components/ember-inplace-edit';
