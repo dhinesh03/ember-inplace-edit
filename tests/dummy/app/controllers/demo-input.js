@@ -1,9 +1,10 @@
-import Ember from 'ember';
+import Controller from '@ember/controller';
+import { computed } from '@ember/object';
 
-export default Ember.Controller.extend({
+export default Controller.extend({
   sampleText1: 'One line Text',
 
-  users: Ember.computed(function() {
+  users: computed(function() {
     return [
       {
         name: 'Jane Doe',
@@ -24,9 +25,9 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    updateUser(model, newValue) {
-      console.log('User updated: ', model);
-      console.log('New value: ', newValue);
+    updateUser(/* model, newValue */) {
+      //console.log('User updated: ', model);
+      //console.log('New value: ', newValue);
     },
 
     inputActivated($container) {

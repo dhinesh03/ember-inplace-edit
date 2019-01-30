@@ -7,7 +7,8 @@
     {{/if}}
   </form>
 {{else}}
-  <span class="edit-box {{if disabled 'edit-box-disabled' ''}}" {{action "startEditing"}}>
+  {{! template-lint-disable quotes}}
+  <span class="edit-box {{if disabled 'edit-box-disabled' ''}}" {{action "startEditing"}} role="button">
     {{#if displayPlaceholder}}
       <div class={{placeholderClass}}>
         {{placeholder}}
@@ -18,7 +19,7 @@
   </span>
   <span class="edit hide {{if disabled 'edit-button-disabled' ''}}">
     {{#if editIcon}}
-      <a {{action "startEditing"}} class={{editIcon}}></a>
+      <a {{action "startEditing"}} class={{editIcon}} role="button"></a>
     {{else}}
       <button {{action "startEditing"}}>edit</button>
     {{/if}}

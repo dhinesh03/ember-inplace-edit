@@ -1,57 +1,28 @@
-import Ember from 'ember';
 import { module, test } from 'qunit';
-import startApp from '../../tests/helpers/start-app';
+import { visit, fillIn, triggerEvent, find, click } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 
-module('Acceptance | input', {
-  beforeEach: function() {
-    this.application = startApp();
-  },
+module('Acceptance | input', function(hooks) {
+  setupApplicationTest(hooks);
 
-  afterEach: function() {
-    Ember.run(this.application, 'destroy');
-  }
-});
-
-test('show edit button on hover', function(assert) {
-  visit('/');
-
-  andThen(function() {
-    assert.equal(find('.examples-header~.row:first .edit').hasClass('hide'), true);
-    $('.examples-header~.row:first .edit-box').mouseenter();
-    andThen(function(){
-      assert.equal(find('.examples-header~.row:first .edit').hasClass('hide'), false);
-    });
+  test('show edit button on hover', async function(assert) {
+    await visit('/');
+    assert.equal(find('.examples-header ~ .row .edit').classList.contains('hide'), true);
+    await triggerEvent('.examples-header ~ .row .edit-box', 'mouseover');
+    assert.equal(find('.examples-header ~ .row .edit').classList.contains('hide'), false);
   });
-});
-
-test('show input box when click on edit button', function(assert) {
-  visit('/');
-
-  andThen(function() {
-    triggerEvent('.examples-header~.row:first .edit-box', 'mouseenter');
-    andThen(function(){
-      click('.examples-header~.row:first .edit button');
-      andThen(function(){
-        assert.equal(find('.examples-header~.row:first input').length, 1);
-      });
-    });
+  
+  test('show input box when click on edit button', async function(assert) {
+    await visit('/');
+    await click('.examples-header ~ .row .edit button');
+    await assert.notEqual(find('.examples-header ~ .row input'), false);
   });
-});
-
-test('edit text', function(assert) {
-  visit('/');
-
-  andThen(function() {
-    triggerEvent('.examples-header~.row:first .edit-box', 'mouseenter');
-    andThen(function(){
-      click('.examples-header~.row:first .edit button');
-      andThen(function(){
-        fillIn('.examples-header~.row:first input', 'Updated content');
-        $('.examples-header~.row:first input').focusout();
-        andThen(function(){
-          assert.equal(find('.examples-header~.row:first .edit-box').text().trim(), 'Updated content');
-        });
-      });
-    });
+  
+  test('edit text', async function(assert) {
+    await visit('/');
+    await click('.examples-header ~ .row .edit button');
+    await fillIn('.examples-header ~ .row input', 'Updated content');
+    await triggerEvent('.examples-header ~ .row input', 'blur');
+    await assert.equal(find('.examples-header ~ .row .edit-box').innerText.trim(), 'Updated content');
   });
 });

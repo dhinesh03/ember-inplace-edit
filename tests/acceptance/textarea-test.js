@@ -1,27 +1,15 @@
-import Ember from 'ember';
 import { module, test } from 'qunit';
-import startApp from '../../tests/helpers/start-app';
+import { visit, fillIn, triggerEvent, find, click } from '@ember/test-helpers';
+import { setupApplicationTest } from 'ember-qunit';
 
-module('Acceptance | textarea', {
-  beforeEach: function() {
-    this.application = startApp();
-  },
+module('Acceptance | Text area', function(hooks) {
+    setupApplicationTest(hooks);
 
-  afterEach: function() {
-    Ember.run(this.application, 'destroy');
-  }
-});
-
-test('edit text', function(assert) {
-  visit('/demo-textarea');
-  andThen(function() {
-  click('.multi-line-text-wrapper:first .edit-box');
-  andThen(function() {
-  fillIn('.multi-line-text-wrapper:first textarea', 'Updated content');
-  $('.multi-line-text-wrapper:first textarea').focusout();
-  andThen(function() {
-    assert.equal(find('.multi-line-text-wrapper:first .edit-box').text().trim(), 'Updated content', 'The text has been updated correctly');
-  });
-});
-});
+    test('edit text', async function(assert) {
+        await visit('/demo-textarea');
+        await click('.multi-line-text-wrapper .edit-box');
+        await fillIn('.multi-line-text-wrapper textarea', 'Updated content');
+        await triggerEvent('.multi-line-text-wrapper textarea', 'blur');
+        assert.equal(find('.multi-line-text-wrapper .edit-box').innerText.trim(), 'Updated content', 'The text has been updated correctly');
+    });
 });

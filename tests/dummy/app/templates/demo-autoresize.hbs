@@ -1,6 +1,6 @@
 <h2>Autoresize examples</h2>
 <h3>Dynamic auto resize</h3>
-<p>It uses the <a href="https://github.com/tim-evans/ember-autoresize" target="_blank">Ember AutoResize</a> addon. You can install it: <em>ember install ember-autoresize</em>. And then set autoResize property to true.</p>
+<p>It uses the <a href="https://github.com/tim-evans/ember-autoresize" target="_blank" rel="noopener">Ember AutoResize</a> addon. You can install it: <em>ember install ember-autoresize</em>. And then set autoResize property to true.</p>
 <div class="row examples-header">
   <div class="col-lg-6 col-md-6 col-sm-6">Output</div>
   <div class="col-lg-6 col-md-6 col-sm-6">Code</div>
@@ -20,15 +20,17 @@
     </div>
   </div>
   <div class="col-lg-6 col-md-6 col-sm-6">
-{{#code-block language='handlebars'}}\{{ember-inplace-edit
-  text=(nl2br multiLineText)
-  value=multiLineText
-  type="textarea"
-  placeholder="Add Placeholder content"
-  placeholderClass="placeholder div class"
-  editIcon="hide"
-  autoResize=true
-}}{{/code-block}}
+    {{#code-block language="handlebars"}}
+      \{{ember-inplace-edit
+        text=(nl2br multiLineText)
+        value=multiLineText
+        type="textarea"
+        placeholder="Add Placeholder content"
+        placeholderClass="placeholder div class"
+        editIcon="hide"
+        autoResize=true
+      }}
+    {{/code-block}}
   </div>
 </div>
 
@@ -62,28 +64,30 @@
     }}
   </div>
   <div class="col-lg-6 col-md-6 col-sm-6">
-{{#code-block language='handlebars'}}<strong>Address:</strong>
-\{{ember-inplace-edit
-  text=city
-  value=city
-  placeholder="City"
-  editIcon="hidden"
-  autoResize=true
-}},
-\{{ember-inplace-edit
-  text=state
-  value=state
-  placeholder="State"
-  editIcon="hidden"
-  autoResize=true
-}}
-\{{ember-inplace-edit
-  text=zip
-  value=zip
-  placeholder="zip"
-  editIcon="hidden"
-  autoResize=true
-}}{{/code-block}}
+    {{#code-block language="handlebars"}}
+      <strong>Address:</strong>
+      \{{ember-inplace-edit
+        text=city
+        value=city
+        placeholder="City"
+        editIcon="hidden"
+        autoResize=true
+      }},
+      \{{ember-inplace-edit
+        text=state
+        value=state
+        placeholder="State"
+        editIcon="hidden"
+        autoResize=true
+      }}
+      \{{ember-inplace-edit
+        text=zip
+        value=zip
+        placeholder="zip"
+        editIcon="hidden"
+        autoResize=true
+      }}
+    {{/code-block}}
   </div>
 </div>
 
@@ -108,13 +112,15 @@
     </div>
   </div>
   <div class="col-lg-6 col-md-6 col-sm-6">
-{{#code-block language='handlebars'}}\{{ember-inplace-edit
-  text=(nl2br multiLineText2)
-  value=multiLineText2
-  type="textarea"
-  placeholder="Add Placeholder content"
-  placeholderClass="placeholder div class"
-  editIcon="hide"
-}}{{/code-block}}
+    {{#code-block language="handlebars"}}
+      \{{ember-inplace-edit
+        text=(nl2br multiLineText2)
+        value=multiLineText2
+        type="textarea"
+        placeholder="Add Placeholder content"
+        placeholderClass="placeholder div class"
+        editIcon="hide"
+      }}
+    {{/code-block}}
   </div>
 </div>
