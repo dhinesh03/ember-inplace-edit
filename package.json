@@ -1,5 +1,5 @@
 {
-  "name": "ember-inplace-edit",
+  "name": "@dk03/ember-inplace-edit",
   "version": "0.2.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
