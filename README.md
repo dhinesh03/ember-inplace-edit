@@ -1,12 +1,12 @@
 # ember-inplace-edit [![npm version](https://badge.fury.io/js/ember-inplace-edit.svg)](https://badge.fury.io/js/ember-inplace-edit) [![Build Status](https://travis-ci.org/anilmaurya/ember-inplace-edit.svg?branch=master)](https://travis-ci.org/anilmaurya/ember-inplace-edit)
 
-This is Ember cli addon for inplace editing
+This is Ember cli addon for inplace editing.The original repository is not maintain by the Authors.Ember-CLI and all test was updated in this repository.
 
 <a href="https://dhinesh03.github.io/ember-inplace-edit/" target="_blank"> Demo </a>
 
 ## Installation
 
-* `ember install ember-inplace-edit`
+* `ember install @dk03/ember-inplace-edit`
 
 ## Released Version
 - 0.2.2 https://github.com/dhinesh03/ember-inplace-edit/releases/tag/v0.2.2
